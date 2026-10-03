@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Focus Deck — интерактивная панель задач, погоды, валют и вдохновения."
+    />
+    <title>Focus Deck — панель продуктивности</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/components.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#dashboard-grid">Перейти к виджетам</a>
+
+    <div id="file-warning" class="file-warning" hidden role="alert">
+      <strong>Сайт открыт неправильно.</strong>
+      Закройте эту вкладку и запустите файл «Открыть сайт.bat» из папки проекта.
+      Адрес рабочей версии должен начинаться с <code>http://127.0.0.1:4173</code>, а не с
+      <code>C:/</code>.
+    </div>
+
+    <script>
+      if (window.location.protocol === 'file:') {
+        document.querySelector('#file-warning').hidden = false;
+      }
+    </script>
+
+    <div class="ambient ambient--one" aria-hidden="true"></div>
+    <div class="ambient ambient--two" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Focus Deck — на главную">
+        <span class="brand__mark" aria-hidden="true">F</span>
+        <span>
+          <strong>Focus Deck</strong>
+          <small>Личный командный центр</small>
+        </span>
+      </a>
+
+      <div class="topbar__meta">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span id="current-date"></span>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__copy">
+          <p class="eyebrow">Панель продуктивности / 01</p>
+          <h1 id="hero-title">Держите день<br /><span>в поле зрения.</span></h1>
+          <p class="hero__lead">
+            Задачи, погода, курсы валют и мудрый мопс Борис — в одном адаптивном
+            пространстве.
+          </p>
+        </div>
+
+        <aside class="hero__stat" aria-label="Сводка панели">
+          <span class="hero__stat-label">Активных модулей</span>
+          <strong id="widget-count">0</strong>
+          <span class="hero__stat-note">Настройте пространство под себя</span>
+        </aside>
+      </section>
+
+      <section class="controls" aria-labelledby="controls-title">
+        <div>
+          <p class="eyebrow">Библиотека модулей</p>
+          <h2 id="controls-title">Добавить виджет</h2>
+        </div>
+
+        <div class="widget-picker" role="group" aria-label="Добавить виджет">
+          <button class="add-button" type="button" data-widget-type="todo">
+            <span aria-hidden="true">✓</span> Задачи
+          </button>
+          <button class="add-button" type="button" data-widget-type="quote">
+            <span aria-hidden="true">✦</span> Фокус
+          </button>
+          <button class="add-button" type="button" data-widget-type="weather">
+            <span aria-hidden="true">☼</span> Погода
+          </button>
+          <button class="add-button" type="button" data-widget-type="currency">
+            <span aria-hidden="true">↗</span> Валюты
+          </button>
+          <button class="add-button" type="button" data-widget-type="pug">
+            <span aria-hidden="true">●</span> Мопс-пауза
+          </button>
+        </div>
+      </section>
+
+      <section class="dashboard-section" aria-labelledby="dashboard-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Рабочее пространство</p>
+            <h2 id="dashboard-title">Моя панель</h2>
+          </div>
+          <p>Меняйте порядок кнопками со стрелками — это работает и с клавиатуры.</p>
+        </div>
+
+        <div id="dashboard-grid" class="dashboard-grid" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <span aria-hidden="true">＋</span>
+          <h3>Панель пока пуста</h3>
+          <p>Добавьте первый модуль из библиотеки выше.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Focus Deck · учебный проект по Web Design</p>
+      <p>Vanilla JavaScript · ES Modules · API</p>
+    </footer>
+
+    <div id="announcer" class="visually-hidden" aria-live="polite"></div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

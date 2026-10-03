@@ -1,0 +1,5 @@
+dist/
+.site-checkout/
+*.tar.gz
+.DS_Store
+Thumbs.db
