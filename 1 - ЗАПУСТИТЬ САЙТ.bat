@@ -16,5 +16,5 @@ if %errorlevel%==0 (
   exit
 )
 
-echo Python ne naiden. Otkroite proekt v Codex i napishite: Zapusti moi sait.
+echo Python ne naiden. Ustanovite Python ili zapustite drugoi lokalnyi HTTP-server na porte 4173.
 pause
